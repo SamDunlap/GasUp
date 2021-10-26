@@ -11,5 +11,13 @@ namespace GasUp.Models
         public string Address;
         public double distance;
         public double price;
+
+        public StationModel(string name, string addr, double p)
+        {
+            CompanyName = name;
+            Address = addr;
+            distance = 0;
+            price = p;
+        }
     }
 }
