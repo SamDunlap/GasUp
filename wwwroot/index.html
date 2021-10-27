@@ -18,6 +18,7 @@
         httpGet = (theUrl) => {
             var xmlHttp = new XMLHttpRequest();
             console.log(theUrl);
+            console.log(fetch("https://thingproxy.freeboard.io/fetch/https://www.gasbuddy.com/gasprices/michigan/ann-arbor", {mode: cors}));
             xmlHttp.open("GET", "https://thingproxy.freeboard.io/fetch/https://www.gasbuddy.com/gasprices/michigan/ann-arbor", false); // false for synchronous request
             xmlHttp.send(null);
             console.log(xmlHttp.responseText);
