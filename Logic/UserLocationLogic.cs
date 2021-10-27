@@ -11,8 +11,8 @@ namespace GasUp.Logic
     {
         public UserLocationModel GetUserLocation()
         {
-            
-            GeoCoordinateWatcher watcher= new GeoCoordinateWatcher(GeoPositionAccuracy.Default);
+
+            /*GeoCoordinateWatcher watcher= new GeoCoordinateWatcher(GeoPositionAccuracy.Default);
             watcher.Start(); //started watcher
             GeoCoordinate coord = watcher.Position.Location;
             double lat = 0;
@@ -22,7 +22,8 @@ namespace GasUp.Logic
                 lng = coord.Longitude;  //logitude
             }
             Console.WriteLine("(" + lat + "," + lng + ")");
-            return new UserLocationModel(lat,lng);
+            return new UserLocationModel(lat,lng);*/
+            return new UserLocationModel(1, 2);
         }
     }
 }

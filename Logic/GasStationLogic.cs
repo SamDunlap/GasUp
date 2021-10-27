@@ -1,27 +1,31 @@
 ﻿using GasUp.Models;
+using HtmlAgilityPack;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace GasUp.Logic
 {
     public class GasStationLogic
     {
-        /*private async Task<string> GetHtml(string url)
+        private async Task<string> GetHtml(string url)
         {
             HttpClient client = new HttpClient();
-            var response_body = await client.GetStringAsync(url);
-            return response_body;
+            var data = await client.GetAsync($"https://thingproxy.freeboard.io/fetch/https://www.gasbuddy.com/gasprices/michigan/ann-arbor");
+            var stream = await data.Content.ReadAsStringAsync();
+            //var response_body = await client.GetStringAsync(url);
+            return stream;
         }
 
-        public List<StationModel> GetStations()
+        public List<StationModel> GetStations(string data)
         {
             // List to hold station objects
             List<StationModel> stations = new List<StationModel>();
 
-            var scrape_url = @"https://www.gasbuddy.com/gasprices/michigan/ann-arbor";
-            var response_body = GetHtml(scrape_url).Result;
+            var scrape_url = @"http://www.whateverorigin.org/get?url=https://www.gasbuddy.com/gasprices/michigan/ann-arbor";
+            var response_body = data;
             var html_doc = new HtmlDocument();
             html_doc.LoadHtml(response_body);
             var outter_cont = html_doc.DocumentNode.SelectSingleNode("/html/body/div/div/div/div[3]/div/div[2]/div[2]/div/div[1]/div");
@@ -48,9 +52,9 @@ namespace GasUp.Logic
             }
 
             return stations;
-        }*/
+        }
         
-        public List<StationModel> GetStations()
+        /*public List<StationModel> GetStations()
         {
             StationModel s1 = new StationModel("CITGO", "215 Ecorse Rd, Ypsilanti, MI", 3.01);
             StationModel s2 = new StationModel("Sunoco", "1024 Ecorse Rd, Ypsilanti, MI", 3.01);
@@ -67,6 +71,6 @@ namespace GasUp.Logic
                 s1, s2, s3, s4, s5, s6, s7, s8, s9, s10
             };
             return stations;
-        }
+        }*/
     }
 }
