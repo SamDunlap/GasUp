@@ -39,7 +39,8 @@ namespace GasUp.Logic
                     // Station Name
                     var station_name = inner_cont.SelectSingleNode("./h3/a").InnerHtml.Replace("&#x27;", "'");
                     // Gas price in USD
-                    var station_price = Convert.ToDouble(node.SelectSingleNode("./div[1]/div[4]/div/span").InnerHtml);
+                    string price = node.SelectSingleNode("./div[1]/div[4]/div/span").InnerHtml.TrimStart('$');
+                    var station_price = Convert.ToDouble(price);
                     // Station Address
                     var station_address = inner_cont.SelectSingleNode("./div[2]").InnerHtml.Replace("<br>", "\n");
 
@@ -50,7 +51,7 @@ namespace GasUp.Logic
                     }
                 }
             }
-
+            stations = stations.Where(x => x != null).Select(x => x).ToList();
             return stations;
         }
         
