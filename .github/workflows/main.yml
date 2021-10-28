@@ -22,7 +22,7 @@ jobs:
     - name: Change base-tag in index.html from / to GasUp
       run: sed -i 's/<base href="\/" \/>/<base href="\/GasUp\/" \/>/g' release/wwwroot/index.html
     - name: Remove integrity check
-      run: "sed -i 's/.map(asset => new Request(asset.url, { integrity: asset.hash }));/.map(asset => new Request(asset.url, { integrity: asset.hash }));/g' service-worker.published.js"
+      run: "sed -i 's/.map(asset => new Request(asset.url, { integrity: asset.hash }));/.map(asset => new Request(asset.url, { integrity: asset.hash }));/g' release/wwwroot/service-worker.published.js"
       # add .nojekyll file to tell GitHub pages to not treat this as a Jekyll project. (Allow files and folders starting with an underscore)
     - name: Add .nojekyll file
       run: touch release/wwwroot/.nojekyll
