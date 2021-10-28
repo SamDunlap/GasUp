@@ -1,0 +1,13 @@
+﻿@using GasUp.Models;
+
+@code {
+    [Parameter]
+    public StationModel Station { get; set; }
+}
+
+<div style="display:inline-flex; border-style:solid; border-color: black;">
+    <h3>@Station.CompanyName</h3>
+    <h3>$@Station.price</h3>
+    <h3>@Station.distance mi</h3>
+    <h3>@Station.Address</h3>
+</div>

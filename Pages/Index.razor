@@ -10,5 +10,8 @@
 
 <button class="btn-danger" @onclick="CallDistanceTest">Test Distance Logic</button>
 
-<div>@stuff</div>
+@foreach(var station in Stations)
+            {
+                <GasUp.Components.StationComponent Station="@station"></GasUp.Components.StationComponent>
+            }
 
