@@ -11,9 +11,26 @@
     <link href="GasUp.styles.css" rel="stylesheet" />
     <link href="manifest.json" rel="manifest" />
     <link rel="apple-touch-icon" sizes="512x512" href="icon-512.png" />
+    <script>
+        showPosition = (position) => {
+            window.y = "Latitude: " + position.coords.latitude +
+                "//Longitude: " + position.coords.longitude;
+            //console.log(window.y);
+        }
+        window.onload = function () {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+                //console.log(window.y);
+            } else {
+                x.innerHTML = "Geolocation is not supported by this browser.";
+            }
+
+        };
+    </script>
 </head>
 
 <body>
+
     <script>
         httpGet = async (theUrl) => {
             return fetch(`https://api.allorigins.win/get?url=${encodeURIComponent('https://www.gasbuddy.com/gasprices/michigan/ann-arbor')}`)
@@ -23,7 +40,13 @@
                 })
                 .then(data => data.contents);
         }
+        getLocation = () => {
+            return window.y;
+        }
+
+        
     </script>
+    <div id="demo"></div>
     <div id="app">Loading...</div>
 
     <div id="blazor-error-ui">
