@@ -30,15 +30,15 @@ namespace GasUp.Pages
             
             var input = await js.InvokeAsync<string>("httpGet", "info");
             var x = input.Length;
-            stuff = input;
+            //stuff = input;
             GasStationLogic test = new GasStationLogic();
             Stations = test.GetStations(input);
         }
 
-        public void CallUserTest()
+        public async Task CallUserTest()
         {
-            UserLocationLogic test = new UserLocationLogic();
-            test.GetUserLocation();
+            var input = await js.InvokeAsync<string>("getLocation");
+            stuff = input;
         }
     }
 }
