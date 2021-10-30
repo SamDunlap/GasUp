@@ -5,9 +5,15 @@
     public StationModel Station { get; set; }
 }
 
-<div style="display:inline-flex; border-style:solid; border-color: black;">
-    <h3>@Station.CompanyName</h3>
-    <h3>$@Station.price</h3>
-    <h3>@Station.distance mi</h3>
-    <h3>@Station.Address</h3>
+<div style="display:inline-flex; border-style:solid; border-color: black; width: 100%; vertical-align: middle; justify-content:space-between;">
+    <div style="display: inline-flex; vertical-align: middle;">
+    <h3 style="vertical-align:middle; align-self:center">@Station.CompanyName</h3>
+    <div style="text-align: left; margin-left: 1em">
+        <div style="width: 100%; text-align:center">
+            <h3 style="margin: 0 auto;">$@Station.price <span style="font-size: 0.8em">per gallon</span></h3>
+        </div>
+        <h3 style="margin: 0 auto; font-size: 0.8em">@Station.Address</h3>
+    </div>
+    </div>
+    <h3 style="align-self: center;">@Station.distance mi</h3>
 </div>

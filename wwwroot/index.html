@@ -13,8 +13,8 @@
     <link rel="apple-touch-icon" sizes="512x512" href="icon-512.png" />
     <script>
         showPosition = (position) => {
-            window.y = "Latitude: " + position.coords.latitude +
-                "//Longitude: " + position.coords.longitude;
+            window.y = position.coords.latitude +
+                " " + position.coords.longitude;
             //console.log(window.y);
         }
         window.onload = function () {
