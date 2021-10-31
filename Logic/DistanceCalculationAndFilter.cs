@@ -8,9 +8,10 @@ namespace GasUp.Logic
 {
     public class DistanceCalculationAndFilter
     {
-        public List<StationModel> FindDistanceAndFormat()
+        public List<StationModel> FindDistanceAndFormat(List<StationModel> stations)
         {
             //our implementation here
+           
 
             return new List<StationModel>();
         }

@@ -22,7 +22,7 @@ namespace GasUp.Pages
         public void CallDistanceTest()
         {
             DistanceCalculationAndFilter test = new DistanceCalculationAndFilter();
-            test.FindDistanceAndFormat();
+            test.FindDistanceAndFormat(Stations);
         }
 
         public async Task CallStationTest()
@@ -37,8 +37,7 @@ namespace GasUp.Pages
 
         public async Task CallUserTest()
         {
-            var input = await js.InvokeAsync<string>("getLocation");
-            stuff = input;
+            
         }
     }
 }
