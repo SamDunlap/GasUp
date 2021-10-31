@@ -33,7 +33,7 @@
 
     <script>
         httpGet = async (theUrl) => {
-            return fetch(`https://api.allorigins.win/get?url=${encodeURIComponent('https://www.gasbuddy.com/gasprices/michigan/ann-arbor')}`)
+            return fetch(`https://api.allorigins.win/get?url=${encodeURIComponent('https://www.gasbuddy.com/home?search=48105&fuel=1&maxAge=0&method=all')}`)
                 .then(response => {
                     if (response.ok) return response.json()
                     throw new Error('Network response was not ok.')

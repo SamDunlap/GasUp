@@ -13,7 +13,7 @@ namespace GasUp.Logic
         private async Task<string> GetHtml(string url)
         {
             HttpClient client = new HttpClient();
-            var data = await client.GetAsync($"https://thingproxy.freeboard.io/fetch/https://www.gasbuddy.com/gasprices/michigan/ann-arbor");
+            var data = await client.GetAsync($"https://thingproxy.freeboard.io/fetch/https://www.gasbuddy.com/home?search=48105&fuel=1&maxAge=0&method=all");
             var stream = await data.Content.ReadAsStringAsync();
             //var response_body = await client.GetStringAsync(url);
             return stream;
@@ -28,7 +28,7 @@ namespace GasUp.Logic
             var response_body = data;
             var html_doc = new HtmlDocument();
             html_doc.LoadHtml(response_body);
-            var outter_cont = html_doc.DocumentNode.SelectSingleNode("/html/body/div/div/div/div[3]/div/div[2]/div[2]/div/div[1]/div");
+            var outter_cont = html_doc.DocumentNode.SelectSingleNode("/html/body/div[1]/div/div/div[3]/div/div/div[1]/div[3]");
             HtmlNodeCollection inner_divs = outter_cont.ChildNodes;
 
             foreach (var node in inner_divs)
@@ -36,18 +36,25 @@ namespace GasUp.Logic
                 var inner_cont = node.SelectSingleNode("./div[1]/div[2]");
                 if (inner_cont != null)
                 {
-                    // Station Name
-                    var station_name = inner_cont.SelectSingleNode("./h3/a").InnerHtml.Replace("&#x27;", "'");
-                    // Gas price in USD
-                    string price = node.SelectSingleNode("./div[1]/div[4]/div/span").InnerHtml.TrimStart('$');
-                    var station_price = Convert.ToDouble(price);
-                    // Station Address
-                    var station_address = inner_cont.SelectSingleNode("./div[2]").InnerHtml.Replace("<br>", "\n");
-
-                    if (station_name != null && station_price != null && station_address != null)
+                    try
                     {
-                        StationModel station = new StationModel(station_name, station_address, station_price);
-                        stations.Add(station);
+                        // Station Name
+                        var station_name = inner_cont.SelectSingleNode("./h3/a").InnerHtml.Replace("&#x27;", "'");
+                        // Gas price in USD
+                        string price = node.SelectSingleNode("./div[1]/div[4]/div/span").InnerHtml.TrimStart('$');
+                        var station_price = Convert.ToDouble(price);
+                        // Station Address
+                        var station_address = inner_cont.SelectSingleNode("./div[2]").InnerHtml.Replace("<br>", "\n");
+
+                        if (station_name != null && station_price != null && station_address != null)
+                        {
+                            StationModel station = new StationModel(station_name, station_address, station_price);
+                            stations.Add(station);
+                        }
+                    }
+                    catch(Exception ex)
+                    {
+                        
                     }
                 }
             }
