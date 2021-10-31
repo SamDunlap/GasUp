@@ -3,9 +3,19 @@
 @code {
     [Parameter]
     public StationModel Station { get; set; }
+    string MapsBase = "https://maps.google.com/?q=";
+
+
+    [Inject]
+    NavigationManager Navigation { get; set; }
+    public void OpenMaps()
+    {
+
+        Navigation.NavigateTo(MapsBase + Station.Address, true);
+    }
 }
 
-<div style="display:inline-flex; border-style:solid; border-color: black; width: 100vw; vertical-align: middle; justify-content:space-between;">
+<div style="display:inline-flex; border-style:solid; border-color: black; width: 100vw; vertical-align: middle; justify-content:space-between;" @onclick="OpenMaps">
     <div style="display: inline-flex; vertical-align: middle;">
     <h3 style="vertical-align:middle; align-self:center">@Station.CompanyName</h3>
     <div style="text-align: left; margin-left: 1em">

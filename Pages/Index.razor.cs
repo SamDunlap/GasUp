@@ -37,7 +37,8 @@ namespace GasUp.Pages
 
         public async Task CallUserTest()
         {
-            
+            var input = await js.InvokeAsync<string>("getLocation");
+            stuff = input;
         }
     }
 }
