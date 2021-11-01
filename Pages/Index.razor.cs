@@ -12,6 +12,9 @@ namespace GasUp.Pages
     public partial class Index
     {
         [Inject]
+        NavigationManager Navigation { get; set; }
+
+        [Inject]
         IJSRuntime js { get; set; }
         string stuff { get; set; }
 
@@ -54,6 +57,11 @@ namespace GasUp.Pages
         public void ToggleHide()
         {
             show = !show;
+        }
+
+        public void Reload()
+        {
+            Navigation.NavigateTo("/", true);
         }
     }
 }
