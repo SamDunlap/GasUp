@@ -19,6 +19,7 @@ namespace GasUp.Pages
         string stuff { get; set; }
 
         bool show = true;
+        StationModel TEST = new StationModel("", "", 0.0);
 
         List<StationModel> Stations { get; set; } = new List<StationModel>();
 
