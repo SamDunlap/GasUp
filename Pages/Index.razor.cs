@@ -35,11 +35,14 @@ namespace GasUp.Pages
         public async Task CallStationTest()
         {
             
-            var input = await js.InvokeAsync<string>("httpGet", "info");
+            var input = await js.InvokeAsync<string>("httpGet", "https://www.gasbuddy.com/home?search=48104&fuel=1&maxAge=0&method=all");
+            var input2 = await js.InvokeAsync<string>("httpGet", "https://www.gasbuddy.com/home?search=48105&fuel=1&maxAge=0&method=all");
             var x = input.Length;
             //stuff = input;
             GasStationLogic test = new GasStationLogic();
             Stations = test.GetStations(input);
+            Stations.AddRange(test.GetStations(input2));
+            Stations = Stations.OrderBy<StationModel, Double>(x => x.distance).ThenBy<StationModel,Double>(x => x.price).ToList();
         }
 
         public async Task CallUserTest()

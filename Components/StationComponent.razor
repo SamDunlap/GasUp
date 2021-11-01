@@ -15,13 +15,11 @@
     }
 }
 
-<div style="display:inline-flex; border-style:solid; border-color: black; width: 100vw; vertical-align: middle; justify-content:space-between;" @onclick="OpenMaps">
-    <h3 style="vertical-align:middle; align-self:center;">@((Station.CompanyName == "Speedway") ? "SW" : Station.CompanyName)</h3>
-    <div style="text-align: center; width:100vw; justify-content:center">
-        <div style="width: 100%; text-align:center">
-            <h3 style="margin: 0 auto;">$@Station.price <span style="font-size: 0.8em">per gallon</span></h3>
-        </div>
-        <h3 style="margin: 0 auto; font-size: 0.8em">@Station.Address</h3>
+<div style="display: inline-flex; justify-content: center; border-bottom-style: solid; border-bottom-color: black; width: 100vw;" @onclick="OpenMaps">
+    <h3 style=" margin-right:auto; margin-left: 0.25em; vertical-align: middle; align-self: center; white-space: nowrap; color: @((Station.CompanyName == "Exxon" || Station.CompanyName == "Mobil") ? "green" : "black")">@((Station.CompanyName == "Speedway") ? "SW" : Station.CompanyName)</h3>
+    <div style=" text-align: center; justify-content: center; vertical-align: middle; align-self: center;">
+            <h3 style="text-align: center; justify-content: center;">$@((Station.CompanyName == "Exxon" || Station.CompanyName == "Mobil") ? Math.Round((Station.price * 0.97), 2) + "/" + Station.price.ToString() : Station.price) <span style="font-size: 0.8em">per gallon</span></h3>
+        <h3 style="text-align: center; justify-content: center; font-size: 0.8em">@Station.Address</h3>
     </div>
-    <h3 style="align-self: center;">@Station.distance mi</h3>
+    <h3 style="margin-right: 0.25em; margin-left: auto; align-self: center; vertical-align: middle; ">@(Station.distance)mi</h3>
 </div>
