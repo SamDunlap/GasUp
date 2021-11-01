@@ -49,6 +49,20 @@ namespace GasUp.Logic
                         if (station_name != null && station_price != null && station_address != null)
                         {
                             StationModel station = new StationModel(station_name, station_address, station_price);
+                            if (station.Address.Contains("Plymouth"))
+                            {
+                                station.distance = 1;
+                            }
+                            else if(station.Address.Contains("PLYMOUTH"))
+                            {
+                                station.distance = 1;
+                            }
+                            else
+                            {
+                                Random rnd = new Random();
+                                station.distance = rnd.Next(3, 6);
+                            }
+                            
                             stations.Add(station);
                         }
                     }
