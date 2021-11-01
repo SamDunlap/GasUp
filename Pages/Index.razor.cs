@@ -61,7 +61,7 @@ namespace GasUp.Pages
 
         public void Reload()
         {
-            Navigation.NavigateTo("/", true);
+            Navigation.NavigateTo("/GasUp/", true);
         }
     }
 }
