@@ -15,10 +15,17 @@ namespace GasUp.Pages
         IJSRuntime js { get; set; }
         string stuff { get; set; }
 
+        bool show = true;
+
         List<StationModel> Stations { get; set; } = new List<StationModel>();
 
         private static object[] data = { "https://thingproxy.freeboard.io/fetch/https://www.gasbuddy.com/gasprices/michigan/ann-arbor" };
 
+
+        protected override async Task OnInitializedAsync()
+        {
+            await CallStationTest();
+        }
         public void CallDistanceTest()
         {
             DistanceCalculationAndFilter test = new DistanceCalculationAndFilter();
@@ -39,6 +46,11 @@ namespace GasUp.Pages
         {
             var input = await js.InvokeAsync<string>("getLocation");
             stuff = input;
+        }
+
+        public void ToggleHide()
+        {
+            show = !show;
         }
     }
 }

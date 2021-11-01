@@ -1,20 +1,14 @@
 ﻿@page "/"
-<div style="background-image:url(background.png); background-size:contain; height: 100vh">
+<div style="@((show) ? "background-image:url(background.png); background-size:cover; height: 100vh; display: flex; align-items: center; justify-content: center;":"")">
 
+    <button hidden="@(!show)" class="btn-success btn-lg" @onclick="ToggleHide">Find me gas</button>
 
-<h1>Let's go GasUp Gamers</h1>
+    <div hidden="@show">
+        @foreach (var station in Stations)
+        {
+            <GasUp.Components.StationComponent Station="@station"></GasUp.Components.StationComponent>
+        }
+    </div>
 
-<button class="btn-primary" @onclick="CallStationTest">Test Station Logic</button>
-
-<button class="btn-warning" @onclick="CallUserTest">Test User Location Logic</button>
-
-<button class="btn-danger" @onclick="CallDistanceTest">Test Distance Logic</button>
-
-<div>@stuff</div>
-
-@foreach(var station in Stations)
-            {
-                <GasUp.Components.StationComponent Station="@station"></GasUp.Components.StationComponent>
-            }
 
 </div>
