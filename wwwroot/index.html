@@ -29,7 +29,7 @@
     </script>
 </head>
 
-<body>
+<!--/*<body>
 
     <script>
         httpGet = async (theUrl) => {
@@ -42,6 +42,61 @@
                     throw new Error('Network response was not ok.')
                 })
                 .then(data => data.contents);
+        }
+        getLocation = () => {
+            return window.y;
+        }
+        httpGetDist = async (theUrl) => {
+            return fetch(`https://api.allorigins.win/get?url=${encodeURIComponent('https://maps.googleapis.com/maps/api/distancematrix/xml?origins=Vancouver+BC|Seattle&destinations=San+Francisco|Vancouver+BC&mode=bicycling&language=fr-FR&key=AIzaSyBifNS8nqRNqFXzdlv3wDbo8pRjhhGAuqY')}`)
+                .then(response => {
+                    if (response.ok) return response.json()
+                    throw new Error('Network response was not ok.')
+                })
+                .then(data => data.contents);
+        }
+
+
+    </script>
+    <div id="demo"></div>
+    <div id="app">Loading...</div>
+
+    <div id="blazor-error-ui">
+        An unhandled error has occurred.
+        <a href="" class="reload">Reload</a>
+        <a class="dismiss">🗙</a>
+    </div>
+    <script src="_framework/blazor.webassembly.js"></script>
+    <script>navigator.serviceWorker.register('service-worker.js');</script>
+</body>-->
+
+<body>
+
+    <script>
+        httpGet = async (theUrl) => {
+            console.log(theUrl);
+            var url = "https://api.allorigins.win/get?url=" + theUrl;
+            console.log(url);
+            return fetch(url)
+                .then(response => {
+                    var data = response.json()
+                    console.log(data)
+                    if (response.ok) return data
+                    throw new Error('Network response was not ok.')
+                })
+                .then(data => data.contents);
+        }
+        httpGet2 = async (theUrl) => {
+            console.log(theUrl);
+            var url = "https://thingproxy.freeboard.io/fetch/" + theUrl;
+            console.log(url);
+            return fetch(url)
+                .then( async (response) => {
+                    var data = response.json()
+                    console.log(data)
+                    return data
+                    throw new Error('Network response was not ok.')
+                })
+                .then(data => data.rows[0].elements[0].distance.text);
         }
         getLocation = () => {
             return window.y;

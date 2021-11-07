@@ -7,8 +7,8 @@ namespace GasUp.Models
 {
     public class UserLocationModel
     {
-        private double lat;
-        private double lng;
+        public double lat;
+        public double lng;
 
 
         public UserLocationModel (double latitude, double longtude) {
