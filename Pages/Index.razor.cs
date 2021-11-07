@@ -20,7 +20,7 @@ namespace GasUp.Pages
 
         [Inject]
         IJSRuntime js { get; set; }
-        string stuff { get; set; }
+        string userLocation { get; set; }
 
         bool show = true;
         StationModel TEST = new StationModel("", "", 0.0);
@@ -44,18 +44,18 @@ namespace GasUp.Pages
             GasStationLogic test = new GasStationLogic();
             Stations = test.GetStations(input);
             Stations.AddRange(test.GetStations(input2));
+            Stations = Stations.OrderBy<StationModel, Double>(x => x.distance).ThenBy<StationModel, Double>(x => x.price).ToList();
             var input3 = await js.InvokeAsync<string>("getLocation");
-            stuff = input;
-            UserLocationLogic test2 = new UserLocationLogic();
-            user = test2.GetUserLocation();
+            userLocation = input3;
             DistanceCalculationAndFilter test3 = new DistanceCalculationAndFilter();
             List<StationModel> tempStations = Stations;
+            string addressUrl = test3.getAddressUrl(userLocation);
+            var input4 = await js.InvokeAsync<string>("httpGetAddress", addressUrl);
             for (int i = 0; i < Stations.Count; ++i)
             {
-                string url = test3.createUrl(Stations[i], user);
-                var input4 = await js.InvokeAsync<string>("httpGet2", url);
-                Console.WriteLine(input4);
-                test3.FindDistanceAndFormat(input4, ref tempStations, user, i);
+                string url = test3.createUrl(Stations[i], input4);
+                var input5 = await js.InvokeAsync<string>("httpGet2", url);
+                test3.FindDistanceAndFormat(input5, ref tempStations, i);
 
             }
      

@@ -25,19 +25,7 @@ namespace GasUp.Logic
     public class DistanceCalculationAndFilter
 
     {
-
-        //public static readonly HttpClient client = new HttpClient();
         public List<StationModel> finalStations;
-
-
-        /* private async Task<string> GetHtml(string url)
-         {
-             HttpClient client = new HttpClient();
-             var data = await client.GetAsync($"https://thingproxy.freeboard.io/fetch/https://www.gasbuddy.com/home?search=48105&fuel=1&maxAge=0&method=all");
-             var stream = await data.Content.ReadAsStringAsync();
-             //var response_body = await client.GetStringAsync(url);
-             return stream;
-         }*/
 
         private async Task<string> GetHtml(string url)
         {
@@ -47,17 +35,23 @@ namespace GasUp.Logic
             return stream;
         }
 
-        public String createUrl(StationModel station, UserLocationModel user)
+        public String getAddressUrl(string userLocation)
+        {
+            userLocation = userLocation.Replace(" ", ",");
+            userLocation = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + userLocation + "&key=" + "API KEY HERE";
+            return userLocation;
+        }
+
+        public String createUrl(StationModel station, string userLocation)
         {
             string url = "";
-            string origin = user.lat.ToString("0.######") + '%' + user.lng.ToString("0.######");
             string destination = station.Address;
-            url = "https://maps.googleapis.com/maps/api/distancematrix/json?origins=" + origin + "&destinations=" + destination + "&key=AIzaSyBifNS8nqRNqFXzdlv3wDbo8pRjhhGAuqY";
+            url = "https://maps.googleapis.com/maps/api/distancematrix/json?origins=" + userLocation + "&destinations=" + destination + "&key=" + "API KEY HERE";
             url = url.Replace(" ", "+");
             url = url.Replace("\n", "+");
             return url;
         }
-        public void FindDistanceAndFormat(string data, ref List<StationModel> stations, UserLocationModel user, int counter)
+        public void FindDistanceAndFormat(string data, ref List<StationModel> stations, int counter)
         {
             int index = data.Length - 2;
             double distance = 0;
@@ -65,8 +59,7 @@ namespace GasUp.Logic
             {
                 data = data.Substring(0, index - 1);
                 data = data.Replace(",", "");
-                Console.WriteLine(data);
-                distance = Convert.ToInt32(data);
+                distance = Convert.ToDouble(data);
                 distance = distance * 0.621371;
 
             }
@@ -74,11 +67,11 @@ namespace GasUp.Logic
             {
                 data = data.Substring(0, index);
                 data = data.Replace(",", "");
-                Console.WriteLine(data);
-                distance = Convert.ToInt32(data);
+                distance = Convert.ToDouble(data);
                 distance = distance * 0.621371;
             }
-            stations[counter].distance = data; 
+            double result = Math.Round(distance, 1);
+            stations[counter].distance = result; 
             return;
         }
     }
