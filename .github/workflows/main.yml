@@ -8,6 +8,8 @@ jobs:
     steps:
         # uses GitHub's checkout action to checkout code form the master branch
     - uses: actions/checkout@v2
+    - name: Add key
+      run: sed -i 's/API KEY HERE/${{ secrets.GOOGLE_SECRET }}/g' Logic/DistanceCalculationAndFilter.cs
        # sets up .NET Core SDK 3.1
     - name: Setup .NET Core SDK
       uses: actions/setup-dotnet@v1
