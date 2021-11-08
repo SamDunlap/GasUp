@@ -15,12 +15,10 @@
         showPosition = (position) => {
             window.y = position.coords.latitude +
                 " " + position.coords.longitude;
-            //console.log(window.y);
         }
         window.onload = function () {
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(showPosition);
-                //console.log(window.y);
             } else {
                 x.innerHTML = "Geolocation is not supported by this browser.";
             }
@@ -33,16 +31,38 @@
 
     <script>
         httpGet = async (theUrl) => {
-            console.log(theUrl);
-            var url = "https://api.allorigins.win/get?url=" + encodeURIComponent(theUrl);
-            console.log(url);
+            var url = "https://api.allorigins.win/get?url=" + theUrl;
             return fetch(url)
                 .then(response => {
-                    if (response.ok) return response.json()
+                    var data = response.json()
+                    if (response.ok) return data
                     throw new Error('Network response was not ok.')
                 })
                 .then(data => data.contents);
         }
+
+        httpGet2 = async (theUrl) => {
+            var url = "https://thingproxy.freeboard.io/fetch/" + theUrl;
+            return fetch(url)
+                .then( async (response) => {
+                    var data = response.json()
+                    return data
+                    throw new Error('Network response was not ok.')
+                })
+                .then(data => data.rows[0].elements[0].distance.text);
+        }
+
+        httpGetAddress = async (theUrl) => {
+            var url = "https://thingproxy.freeboard.io/fetch/" + theUrl;
+            return fetch(url)
+                .then(async (response) => {
+                    var data = response.json()
+                    return data
+                    throw new Error('Network response was not ok.')
+                })
+                .then(data => data.results[0].formatted_address);
+        }
+
         getLocation = () => {
             return window.y;
         }
