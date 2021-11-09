@@ -9,7 +9,7 @@ jobs:
         # uses GitHub's checkout action to checkout code form the master branch
     - uses: actions/checkout@v2
     - name: Add key
-      run: sed -i 's/API KEY HERE/${{ secrets.GOOGLE_SECRET }}/g' Logic/DistanceCalculationAndFilter.cs wwwroot/index.html
+      run: sed -i 's/API KEY HERE/${{ secrets.GOOGLE_SECRET }}/g' Logic/DistanceCalculationAndFilter.cs
     - name: Add key to html
       run: sed -i 's/API KEY HERE/${{ secrets.GOOGLE_SECRET }}/g' wwwroot/index.html
       # sets up .NET Core SDK 3.1
