@@ -38,7 +38,7 @@ namespace GasUp.Logic
         public String getAddressUrl(string userLocation)
         {
             userLocation = userLocation.Replace(" ", ",");
-            userLocation = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + userLocation + "%26key=" + "API KEY HERE";
+            userLocation = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + userLocation + "%&key=" + "API KEY HERE";
             return userLocation;
         }
 
@@ -46,7 +46,7 @@ namespace GasUp.Logic
         {
             string url = "";
             string destination = station.Address;
-            url = "https://maps.googleapis.com/maps/api/distancematrix/json?origins=" + userLocation + "&destinations=" + destination + "%26key=" + "API KEY HERE";
+            url = "https://maps.googleapis.com/maps/api/distancematrix/json?origins=" + userLocation + "&destinations=" + destination + "&key=" + "API KEY HERE";
             url = url.Replace(" ", "+");
             url = url.Replace("\n", "+");
             return url;
