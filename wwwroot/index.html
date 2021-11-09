@@ -42,7 +42,7 @@
         }
 
         httpGet2 = async (theUrl) => {
-            var url = "https://thingproxy.freeboard.io/fetch/" + theUrl;
+            var url = theUrl;
             return fetch(url)
                 .then( async (response) => {
                     var data = response.json()
@@ -53,7 +53,7 @@
         }
 
         httpGetAddress = async (theUrl) => {
-            var url = "https://thingproxy.freeboard.io/fetch/" + theUrl;
+            var url = theUrl;
             return fetch(url)
                 .then(async (response) => {
                     var data = response.json()
