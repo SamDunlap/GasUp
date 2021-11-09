@@ -41,27 +41,23 @@
                 .then(data => data.contents);
         }
 
-        httpGet2 = async (theUrl) => {
+        httpGet2 = async (origin, destination) => {
              var service = new google.maps.DistanceMatrixService;
              return service.getDistanceMatrix({
-                origins: ["Greenwich, England"],
-                destinations: ["Stockholm, Sweden"],
+                origins: [origin],
+                destinations: [destination],
                 travelMode: 'DRIVING',
                 unitSystem: google.maps.UnitSystem.METRIC,
                 avoidHighways: false,
                 avoidTolls: false
             }).then((response, status) => {
-                //if (status !== google.maps.DistanceMatrixStatus.OK) {
-                //    console.log('Error: it crashed:', status);
-                //} else {
                 console.log(response);
                 var json = JSON.stringify(response);
                 var data = JSON.parse(json);
                 console.log(data);
                 return data.rows[0];
                 throw new Error('Network response was not ok.')
-            })
-                .then(data => data.elements[0].distance.text);
+            }).then(data => data.elements[0].distance.text);
         }
 
         httpGetAddress = async (theUrl) => {
@@ -99,7 +95,7 @@
         <a class="dismiss">🗙</a>
     </div>
     <script async defer
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBl8Yba2SodKAl5msx-Yfm4fudiKOeRcJQ&callback">
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_aE7QQsE4Zp5G99qKXoWxUaqIPihhiTs&callback">
     </script>
     <script src="_framework/blazor.webassembly.js"></script>
     <script>navigator.serviceWorker.register('service-worker.js');</script>
