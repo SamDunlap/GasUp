@@ -50,11 +50,11 @@ namespace GasUp.Pages
             DistanceCalculationAndFilter test3 = new DistanceCalculationAndFilter();
             List<StationModel> tempStations = Stations;
             string addressUrl = test3.getAddressUrl(userLocation);
-            var input4 = await js.InvokeAsync<string>("httpGetAddress", addressUrl);
+            //var input4 = await js.InvokeAsync<string>("httpGetAddress", addressUrl);
             for (int i = 0; i < Stations.Count; ++i)
             {
-                string url = test3.createUrl(Stations[i], input4);
-                var input5 = await js.InvokeAsync<string>("httpGet2", url);
+                string url = test3.createUrl(Stations[i], addressUrl);
+                var input5 = await js.InvokeAsync<string>("httpGet2", Stations[i].Address, addressUrl);
                 test3.FindDistanceAndFormat(input5, ref tempStations, i);
 
             }
