@@ -42,15 +42,16 @@
         }
 
         httpGet2 = async (theUrl) => {
-            var url = theUrl;
+            var url = "https://thingproxy.freeboard.io/fetch/" + theUrl;
             let headers = new Headers();
 
             headers.append('Accept', 'application/json');
             headers.append('Origin', 'https://samdunlap.github.io');
             return fetch(url, {
-                mode: 'cors',
-                method: 'GET',
-                headers: headers
+//                 mode: 'cors',
+//                 method: 'GET',
+//                 headers: headers
+                dataType: 'jsnop'
             })
                 .then( async (response) => {
                     var data = response.json()
@@ -61,15 +62,16 @@
         }
 
         httpGetAddress = async (theUrl) => {
-            var url = theUrl;
+            var url = "https://thingproxy.freeboard.io/fetch/" + theUrl;
              let headers = new Headers();
 
             headers.append('Accept', 'application/json');
             headers.append('Origin', 'https://samdunlap.github.io');
             return fetch(url, {
-                mode: 'cors',
-                method: 'GET',
-                headers: headers
+//                 mode: 'cors',
+//                 method: 'GET',
+//                 headers: headers
+                dataType: 'jsnop'
             })
                 .then(async (response) => {
                     var data = response.json()
