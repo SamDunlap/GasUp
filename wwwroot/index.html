@@ -43,7 +43,16 @@
 
         httpGet2 = async (theUrl) => {
             var url = theUrl;
-            return fetch(url, {mode: 'cors'})
+            let headers = new Headers();
+
+            headers.append('Content-Type', 'application/json');
+            headers.append('Accept', 'application/json');
+            headers.append('Origin', 'http://localhost:3000');
+            return fetch(url, {
+                mode: 'cors',
+                method: 'GET',
+                headers: headers
+            })
                 .then( async (response) => {
                     var data = response.json()
                     return data
@@ -54,7 +63,16 @@
 
         httpGetAddress = async (theUrl) => {
             var url = theUrl;
-            return fetch(url, {mode: 'cors'})
+             let headers = new Headers();
+
+            headers.append('Content-Type', 'application/json');
+            headers.append('Accept', 'application/json');
+            headers.append('Origin', 'http://localhost:3000');
+            return fetch(url, {
+                mode: 'cors',
+                method: 'GET',
+                headers: headers
+            })
                 .then(async (response) => {
                     var data = response.json()
                     return data
