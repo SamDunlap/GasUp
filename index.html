@@ -43,7 +43,7 @@
 
         httpGet2 = async (theUrl) => {
             var url = theUrl;
-            return fetch(url)
+            return fetch(url, {mode: 'no-cors'})
                 .then( async (response) => {
                     var data = response.json()
                     return data
@@ -54,7 +54,7 @@
 
         httpGetAddress = async (theUrl) => {
             var url = theUrl;
-            return fetch(url)
+            return fetch(url, {mode: 'no-cors'})
                 .then(async (response) => {
                     var data = response.json()
                     return data
