@@ -44,7 +44,7 @@ namespace GasUp.Pages
             GasStationLogic test = new GasStationLogic();
             Stations = test.GetStations(input);
             Stations.AddRange(test.GetStations(input2));
-            Stations = Stations.OrderBy<StationModel, Double>(x => x.distance).ThenBy<StationModel, Double>(x => x.price).ToList();
+            //Stations = Stations.OrderBy<StationModel, Double>(x => x.distance).ThenBy<StationModel, Double>(x => x.price).ToList();
             var input3 = await js.InvokeAsync<string>("getLocation");
             userLocation = input3;
             DistanceCalculationAndFilter test3 = new DistanceCalculationAndFilter();
@@ -59,7 +59,7 @@ namespace GasUp.Pages
 
             }
      
-            Stations = tempStations;
+            Stations = tempStations.OrderBy<StationModel, Double>(x => Math.Floor(x.distance)).ThenBy<StationModel, Double>(x => x.price).ToList();
         }
 
         public void ToggleHide()
