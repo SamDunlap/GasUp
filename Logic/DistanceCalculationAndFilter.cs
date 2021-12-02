@@ -71,7 +71,7 @@ namespace GasUp.Logic
                 distance = distance * 0.621371;
             }
             double result = Math.Round(distance, 1);
-            stations[counter].distance = result; 
+            stations[counter].distance = result;
             return;
         }
     }

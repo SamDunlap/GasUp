@@ -4,12 +4,17 @@
     <button hidden="@(!show)" class="btn-success btn-lg" @onclick="ToggleHide">Find me gas</button>
 
     <div hidden="@show">
-        @foreach (var station in Stations)
-        {
-            <GasUp.Components.StationComponent Station="@station"></GasUp.Components.StationComponent>
-        }
-        <GasUp.Components.StationComponent Station="@TEST"></GasUp.Components.StationComponent>
-        <div style="width: 100%; position: fixed; background-color:lightgray; padding: 10px 0; color: #fff; bottom: 0;">
+        <div style="display: flex; height: 8vh; width: 100%; position: fixed; background-color: #00b4a5; top: 0;align-items: center;">
+            <img style="height: 45px; width: 45px; margin-left: 2vw;" src="gas-logo.png" alt="GasUp Logo">
+            <h1 style="margin-left: 1vw;">GasUp</h1>
+        </div>
+        <div style="border-top: solid grey; margin-top: 8vh; margin-bottom: 8vh;">
+            @foreach (var station in Stations)
+            {
+                <GasUp.Components.StationComponent Station="@station"></GasUp.Components.StationComponent>
+            }
+        </div>
+        <div style="height: 8vh; width: 100%; position: fixed; background-color:lightgray; padding: 10px 0; color: #fff; bottom: 0; border-top: solid grey;">
             <button @onclick="Reload" style="margin-left: 0.5em" class="btn-dark btn-lg">Back</button>
         </div>
     </div>

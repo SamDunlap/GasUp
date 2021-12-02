@@ -23,7 +23,7 @@ namespace GasUp.Pages
         string userLocation { get; set; }
 
         bool show = true;
-        StationModel TEST = new StationModel("", "", 0.0);
+        StationModel TEST = new StationModel("", "", 0.0, "");
 
         List<StationModel> Stations { get; set; } = new List<StationModel>();
         UserLocationModel user;
