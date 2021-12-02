@@ -1,9 +1,9 @@
 ﻿@page "/"
-<div style="@((show) ? "background-image:url(background.png); background-size:cover; height: 100vh; display: flex; align-items: center; justify-content: center;":"")">
+<div >
 
-    <button hidden="@(!show)" class="btn-success btn-lg" @onclick="ToggleHide">Find me gas</button>
+    
 
-    <div hidden="@show">
+    <div>
         <div style="display: flex; height: 8vh; width: 100%; position: fixed; background-color: #00b4a5; top: 0;align-items: center;">
             <img style="height: 45px; width: 45px; margin-left: 2vw;" src="gas-logo.png" alt="GasUp Logo">
             <h1 style="margin-left: 1vw;">GasUp</h1>
@@ -14,11 +14,20 @@
                 <GasUp.Components.StationComponent Station="@station"></GasUp.Components.StationComponent>
             }
         </div>
-        <div style="height: 8vh; width: 100%; position: fixed; background-color:lightgray; padding: 10px 0; color: #fff; bottom: 0; border-top: solid grey;">
-            <button @onclick="Reload" style="margin-left: 0.5em" class="btn-dark btn-lg">Back</button>
+        <div style="height: 8vh; width: 100%; position: fixed; background-color:lightgray; padding: 10px 0; color: #fff; bottom: 0; border-top: solid grey; justify-content: space-between; display: flex">
+            <button @onclick="Reload" style="margin-left: 0.5em" class="btn-dark btn-lg">Refresh</button>
+            
+            @if(SortType){
+                <span style="color:black; font-size: 1.5em"><b>Sort By: </b>Distance</span>
+            }
+            else
+            {
+                <span style="color: black; font-size: 1.5em"><b>Sort By: </b>Price</span>
+            }
+            <button @onclick="ChangeSort" style="margin-right: 0.5em" class="btn-dark btn-lg">Toggle Sort</button>
         </div>
     </div>
 
-
+    
 
 </div>

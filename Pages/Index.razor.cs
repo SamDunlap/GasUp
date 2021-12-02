@@ -28,6 +28,8 @@ namespace GasUp.Pages
         List<StationModel> Stations { get; set; } = new List<StationModel>();
         UserLocationModel user;
 
+        bool SortType = true;
+
         private static object[] data = { "https://thingproxy.freeboard.io/fetch/https://www.gasbuddy.com/gasprices/michigan/ann-arbor" };
 
 
@@ -67,9 +69,24 @@ namespace GasUp.Pages
             show = !show;
         }
 
-        public void Reload()
+        public async Task Reload()
         {
-            Navigation.NavigateTo("/GasUp/", true);
+            await CallStationTest();
+        }
+
+        public void ChangeSort()
+        {
+            if (SortType)
+            {
+                Stations = Stations.OrderBy<StationModel, Double>(x => x.price).ToList();
+                SortType = !SortType;
+            }
+
+            else
+            {
+                Stations = Stations.OrderBy<StationModel, Double>(x => Math.Floor(x.distance)).ThenBy<StationModel, Double>(x => x.price).ToList();
+                SortType = !SortType;
+            }
         }
     }
 }
