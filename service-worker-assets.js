@@ -57,6 +57,10 @@
       "url": "favicon.ico"
     },
     {
+      "hash": "sha256-dQjsyDyILzW299gEelbNRpB2Cp6dMHL2FlSHNckMtTo=",
+      "url": "gas-logo.png"
+    },
+    {
       "hash": "sha256-IpHFcQvs03lh6W54zoeJRG1jW+VnGmwymzxLoXtKX7Y=",
       "url": "icon-512.png"
     },
@@ -185,7 +189,7 @@
       "url": "_framework\/System.IO.Pipelines.dll"
     },
     {
-      "hash": "sha256-fwQrjYmDcIU9AxGeKl8Prbb9jReSf1jzdh96AlCKeD4=",
+      "hash": "sha256-C67KkMAaICnvXK+5EpaVnkJ3IqqjrdY3Z\/haFrTWgkg=",
       "url": "_framework\/GasUp.dll"
     },
     {
@@ -349,7 +353,7 @@
       "url": "_framework\/System.Private.CoreLib.dll"
     },
     {
-      "hash": "sha256-vRjFu7eDEWZw6g6E+4ge\/jKO6F5tLlVpfMRG3XhoCIo=",
+      "hash": "sha256-PepS19zbW5Qm8wICJvNSj4yo53WxTGwZqSCi8hACqr8=",
       "url": "_framework\/blazor.boot.json"
     },
     {
@@ -357,5 +361,5 @@
       "url": "_framework\/blazor.webassembly.js"
     }
   ],
-  "version": "CWA5\/qf0"
+  "version": "a3y3M9P4"
 };
