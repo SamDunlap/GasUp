@@ -14,17 +14,19 @@
                 <GasUp.Components.StationComponent Station="@station"></GasUp.Components.StationComponent>
             }
         </div>
-        <div style="height: 12vh; width: 100%; position: fixed; background-color:lightgray; padding: 10px 0; color: #fff; bottom: 0; border-top: solid grey; justify-content: space-between; display: flex">
-            <button @onclick="Reload" style="margin-left: 0.5em" class="btn-dark btn-lg">Refresh</button>
+        <div style="height: 8vh; width: 100%; position: fixed; background-color:lightgray; padding: 10px 0; color: #fff; bottom: 0; border-top: solid grey; justify-content: space-between; display: flex">
+            <button @onclick="Reload" style="margin-left: 0.5em; height: 6vh;" class="btn-dark btn-lg">Refresh</button>
             
-            @if(SortType){
-                <span style="color:black; font-size: 1.5em"><b>Sort By: </b>Distance</span>
-            }
-            else
-            {
-                <span style="color: black; font-size: 1.5em"><b>Sort By: </b>Price</span>
-            }
-            <button @onclick="ChangeSort" style="margin-right: 0.5em" class="btn-dark btn-lg">Toggle Sort</button>
+            <span style="align-items: center; justify-content: center">
+                @if(SortType){
+                    <span style="color:black; font-size: 1.5em; width: 60vw;"><b>Sort By: </b>Distance</span>
+                }
+                else
+                {
+                    <span style="color: black; font-size: 1.5em; width: 60vw;"><b>Sort By: </b>Price</span>
+                }
+            </span>
+            <button @onclick="ChangeSort" style="margin-right: 0.5em; height: 6vh;" class="btn-dark btn-lg">Toggle Sort</button>
         </div>
     </div>
 

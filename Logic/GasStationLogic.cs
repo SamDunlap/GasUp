@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
+using System.Globalization;
 
 namespace GasUp.Logic
 {
@@ -48,7 +49,9 @@ namespace GasUp.Logic
                         // Price: /html/body/div/div/div/div[3]/div/div/div[1]/div[3]/div[1]/div/div[4]/div
                         var station_price = Convert.ToDouble(price);
                         // Station Address
+                        TextInfo textInfo = new CultureInfo("en-US", false).TextInfo;
                         var station_address = inner_cont.SelectSingleNode("./div[2]").InnerHtml.Replace("<br>", "\n");
+                        station_address = textInfo.ToTitleCase(station_address.ToLower()).Replace("Mi", "MI");
                         // Logo: /html/body/div/div/div/div[3]/div/div/div[1]/div[3]/div[2]/div/div[1]/div/div/img
                         var station_logo_src = node.SelectSingleNode("./div[1]/div/div/div/noscript/img").Attributes["src"].Value;
 
