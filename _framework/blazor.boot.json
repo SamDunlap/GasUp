@@ -27,7 +27,7 @@
       "BouncyCastle.Crypto.dll": "sha256-RibIkhE7ADYGOTUAWd1qTvz4lNF6C5L3l12TXgYWXDA=",
       "System.Device.Portable.dll": "sha256-XasH2gW2GPLpZ\/FSMb563HcnHAzJWVFwDWBnW0PKU5U=",
       "System.IO.Pipelines.dll": "sha256-qZYTUS+ga7CydtH54fYPbehFCvx3B49I74G8dxreTog=",
-      "GasUp.dll": "sha256-RlTr93VMljpxDjh7Mqqw3FZMaCzshEo6SzBSMaoeUeA=",
+      "GasUp.dll": "sha256-BJbG+vGWhNuORGuhmiicheQtA+9JrYEP2jNI+If7X5s=",
       "System.Collections.Concurrent.dll": "sha256-Lz3ZOduIBiJjsYuf9MZnx4Sw9eIYRwhf0jh6ptaArAo=",
       "System.Collections.Immutable.dll": "sha256-PaTR6ElJn2hDTTfVR0G8wIAQ2S2dETGa1QeiUY17kBc=",
       "System.Collections.NonGeneric.dll": "sha256-HXf+jbNjGHYOr09FnhU6Qy69AwZfW6mr1294LLOzyfE=",
@@ -67,7 +67,7 @@
       "System.Text.Encodings.Web.dll": "sha256-5G5fWLAre5QkeTjx3LNhRf0hot\/ikOlhSTyCGT\/LSOU=",
       "System.Text.Json.dll": "sha256-DITuS86JcF1JRjAgyG1lAwUOR6sBWXHPO06SeEn9c0w=",
       "System.Text.RegularExpressions.dll": "sha256-+12zS0GxQxrCWYtV9Ihv2riIZkiFdQgyRtZWjlmy5I8=",
-      "System.Private.CoreLib.dll": "sha256-ZPOLyHIhu2\/jM0cEqplKmrQiRTj7cG6FpaWeF\/bn+oI="
+      "System.Private.CoreLib.dll": "sha256-uqVoqHpPZN76VmozjjVC7xCNHc3CJdKQyqIIIg1Tq8s="
     },
     "lazyAssembly": null,
     "pdb": null,
