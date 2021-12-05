@@ -53,7 +53,7 @@
       "url": "css\/open-iconic\/README.md"
     },
     {
-      "hash": "sha256-Jtxf9L+5ITKRc1gIRl4VbUpGkRNfOBXjYTdhJD4facM=",
+      "hash": "sha256-EW7z6o+c6xkWNrqXacrLjSpPFFIG2i9fAn0ctzdhsEM=",
       "url": "favicon.ico"
     },
     {
@@ -62,7 +62,11 @@
     },
     {
       "hash": "sha256-IpHFcQvs03lh6W54zoeJRG1jW+VnGmwymzxLoXtKX7Y=",
-      "url": "icon-512.png"
+      "url": "icon-512-old.png"
+    },
+    {
+      "hash": "sha256-EW7z6o+c6xkWNrqXacrLjSpPFFIG2i9fAn0ctzdhsEM=",
+      "url": "icon-512.ico"
     },
     {
       "hash": "sha256-nwKwY+pz7DAS8OUjT6ehrdqNYm\/H\/g1t0mKXLIsJmks=",
@@ -189,7 +193,7 @@
       "url": "_framework\/System.IO.Pipelines.dll"
     },
     {
-      "hash": "sha256-E3LaxFefp6ReQJzl9N9cWbXTdnYgOoEUkVlzWT0oRoU=",
+      "hash": "sha256-lCpFosCBvpxEVQab4G6XAn5D7XcLevQad\/RmUPD87Zo=",
       "url": "_framework\/GasUp.dll"
     },
     {
@@ -353,7 +357,7 @@
       "url": "_framework\/System.Private.CoreLib.dll"
     },
     {
-      "hash": "sha256-PqbgARYuqy7RZOzkkhxyeoC7ZY4uGuPjkd0i\/PQk6GM=",
+      "hash": "sha256-RDI8CH5J0KMqRjxwFQM78j8tW1Ql70\/XhM\/hwMCOQfA=",
       "url": "_framework\/blazor.boot.json"
     },
     {
@@ -361,5 +365,5 @@
       "url": "_framework\/blazor.webassembly.js"
     }
   ],
-  "version": "ACCf7ATq"
+  "version": "WxOY90mZ"
 };
