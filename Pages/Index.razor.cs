@@ -24,8 +24,7 @@ namespace GasUp.Pages
 
         bool show = true;
         StationModel TEST = new StationModel("", "", 0.0, "");
-
-        //List<StationModel> Stations { get; set; } = new List<StationModel>();
+        
         private List<StationModel> Stations { get; set; }
         UserLocationModel user;
 

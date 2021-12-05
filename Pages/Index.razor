@@ -1,8 +1,5 @@
 ﻿@page "/"
 <div >
-
-    
-
     <div>
         <div style="display: flex; height: 8vh; width: 100%; position: fixed; background-color: #00b4a5; top: 0;align-items: center;">
             <img style="height: 45px; width: 45px; margin-left: 2vw;" src="gas-logo.png" alt="GasUp Logo">
@@ -25,13 +22,6 @@
             <button @onclick="Reload" style="margin-left: 0.5em; height: 6vh;" class="btn-dark btn-lg">Refresh</button>
             
             <span style="align-items: center; justify-content: center;">
-                <!--@if(SortType){
-                    <span style="color:black; font-size: 1.5em; width: 60vw;"><b>Sort By: </b>Distance</span>
-                }
-                else
-                {
-                    <span style="color: black; font-size: 1.5em; width: 60vw;"><b>Sort By: </b>Price</span>
-                }-->
                 <div style="margin: auto; width: 50vw;">
                     <div style="color: black; font-size: 0.75em; font-weight: bolder; text-align: center;">Sort By:</div>
                     @if (SortType)
@@ -47,7 +37,4 @@
             <button @onclick="ChangeSort" style="margin-right: 0.5em; height: 6vh; font-size: 0.75em" class="btn-dark btn-lg">Toggle Sort</button>
         </div>
     </div>
-
-    
-
 </div>
